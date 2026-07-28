@@ -4,7 +4,14 @@ import type { Book } from "./Types/Book"
 import BookList from "./components/BookList"
 import axios from "axios"
 
-const API = 'https://crudcrud.com/api/1da5abbc1593427e96fd7e449f13accc/Livros'
+// CRIE UM ENDPOINT DE UMA API NO CRUDCRUD E COLE NO CONST API ABAIXO, SE NAO COLAR NAO FUNCIONA
+const API = ''
+
+const Mocked = {
+  title: "Coraline",
+  author: "Neil Gaiman",
+  status: "Lido"
+}
 
 function App() {
 
@@ -19,6 +26,14 @@ function App() {
       console.log(erro.response)
     })
   }
+
+  useEffect(() => {
+      axios.post<Book>(API, Mocked)
+      .then(resposta => setBook((prev) => [...prev, resposta.data]))
+      .catch((erro) => {
+        console.log(erro)
+      })
+  }, [])
 
   useEffect(() => {
     // fetch
