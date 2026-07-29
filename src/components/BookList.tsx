@@ -1,5 +1,6 @@
-import type { Book } from "../Types/Book"
-import ItemReclamacao from "./BookItem";
+import type { Book } from "../Types/Book"   
+import { ContainerLista } from "../Styles/ListaStyle";
+import BookItem from "./BookItem";
 
 type Props = {
     books: Book[];
@@ -10,11 +11,11 @@ const BookList = ({ books, onDelete }  : Props) => {
     if(books.length === 0)
         return <p>Nenhum livro cadastrado</p>
     return (
-        <div>
+        <ContainerLista>
             {
-                books.map(item => (<ItemReclamacao key={item._id} book={item} onDelete={onDelete}/>))
+                books.map(item => (<BookItem key={item._id} book={item} onDelete={onDelete}/>))
             }
-        </div>
+        </ContainerLista>
     )
 }
 

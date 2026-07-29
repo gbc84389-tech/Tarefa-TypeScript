@@ -1,3 +1,4 @@
+import { CardStyle } from "../Styles/CardStyle"
 import type { Book } from "../Types/Book"
 
 type props = {
@@ -7,13 +8,13 @@ type props = {
 
 export default function BookItem({ book, onDelete } : props) {
     return (
-        <div>
+        <CardStyle>
             <div>
                 <strong>{book.title}</strong>
             </div>
             <p>{book.author}</p>
             <small>{book.status}</small>
             <button onClick={() => onDelete(book._id!)}>DELETE</button>
-        </div>
+        </CardStyle>
     )
 }
